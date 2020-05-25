@@ -15,12 +15,13 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        news: []
+        news: [],
+        count: 0,
     },
     getters: {      // computed와 동일한 속성인데, 다만, getters는 store에 있는 것.
         fetchedNews(state){
             return state.news;     
-        }
+        },
     },
     mutations: {
         // actions 에서 호출에온 api 데이터를 state로 옮겨주는 역할. 
@@ -30,6 +31,12 @@ export const store = new Vuex.Store({
         //    }
         SET_NEWS(state, news){      // => 두번째 인자는 actions에서 context.commit에서 담아주는 데이터 (를 state.news에 담는다)
             state.news = news;
+        },
+        increment(state){
+            state.count ++;
+        },
+        decrement(state){
+            state.count --;
         }
     },
     actions: {     // { commit } 으로 써주면, 밑에서 바로commit으로 쓸수 있다.(context.commit 아닌)

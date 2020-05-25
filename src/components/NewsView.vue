@@ -1,5 +1,6 @@
 <template>
   <div>
+      <h2>NewsView 예제 ( vuex - axios(actions))</h2>
       {{ fetchedNews }}
       <!-- computed 상(...mapState({...}) 안에) news 임. -->
   </div>
